@@ -39,8 +39,16 @@
               <moduleName>npm</moduleName>
               <executableName>npm-cli</executableName>
               <arguments>
+                <argument>version</argument>
+              </arguments>
+            </nodeJsTask>
+            <nodeJsTask>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <moduleName>npm</moduleName>
+              <executableName>npm-cli</executableName>
+              <arguments>
                 <argument>run</argument>
-                <argument>build</argument>
+                <argument>build:prod</argument>
               </arguments>
             </nodeJsTask>
           </tasks>

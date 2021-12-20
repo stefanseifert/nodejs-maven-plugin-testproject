@@ -7,8 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production",
-    "build": "npm version && npm run build:prod"
+    "build:prod": "webpack --mode production"
   },
   "dependencies": {
     "bootstrap": "4.6.0",
