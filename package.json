@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "delta65Project-frontend",
+  "name": "nodejs-maven-plugin-testproject",
   "version": "1.0.0",
   "description": "Frontend build pipeline for AEM projects",
   "main": "index.js",
