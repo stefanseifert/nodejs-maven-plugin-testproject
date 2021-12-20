@@ -30,6 +30,7 @@
         </executions>
         <configuration>
           <nodeJsVersion>10.16.3</nodeJsVersion>
+          <npmVersion>6.9.0</npmVersion>
           <tasks>
             <npmInstallTask>
               <workingDirectory>${project.basedir}</workingDirectory>
@@ -40,15 +41,6 @@
               <executableName>npm-cli</executableName>
               <arguments>
                 <argument>version</argument>
-              </arguments>
-            </nodeJsTask>
-            <nodeJsTask>
-              <workingDirectory>${project.basedir}</workingDirectory>
-              <moduleName>npm</moduleName>
-              <executableName>npm-cli</executableName>
-              <arguments>
-                <argument>run</argument>
-                <argument>build:prod</argument>
               </arguments>
             </nodeJsTask>
           </tasks>
