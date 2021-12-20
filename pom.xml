@@ -19,19 +19,6 @@
     <plugins>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>../bundles/core/src/main/webapp/clientlibs-root</directory>
-            </fileset>
-          </filesets>
-        </configuration>
-      </plugin>
-
-      <!-- Use NPM and Webpack to build frontend -->
-      <plugin>
         <groupId>io.wcm.maven.plugins</groupId>
         <artifactId>nodejs-maven-plugin</artifactId>
         <version>3.0.2</version>
@@ -53,19 +40,10 @@
               <executableName>npm-cli</executableName>
               <arguments>
                 <argument>run</argument>
-                <argument>build:clientlibs</argument>
+                <argument>build</argument>
               </arguments>
             </nodeJsTask>
           </tasks>
-        </configuration>
-      </plugin>
-
-      <!-- Do not generate eclipse project files -->
-      <plugin>
-        <groupId>io.wcm.devops.maven.plugins</groupId>
-        <artifactId>eclipse-maven-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
         </configuration>
       </plugin>
 
