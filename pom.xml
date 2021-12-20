@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.wcm.maven</groupId>
+    <artifactId>io.wcm.maven.aem-global-parent</artifactId>
+    <version>1.15.14</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>io.wcm.samples</groupId>
+  <artifactId>io.wcm.samples.nodejs-maven-plugin-testproject</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <build>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>../bundles/core/src/main/webapp/clientlibs-root</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
+      <!-- Use NPM and Webpack to build frontend -->
+      <plugin>
+        <groupId>io.wcm.maven.plugins</groupId>
+        <artifactId>nodejs-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals><goal>run</goal></goals>
+          </execution>
+        </executions>
+        <configuration>
+          <nodeJsVersion>14.18.2</nodeJsVersion>
+          <tasks>
+            <npmInstallTask>
+              <workingDirectory>${project.basedir}</workingDirectory>
+            </npmInstallTask>
+            <nodeJsTask>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <moduleName>npm</moduleName>
+              <executableName>npm-cli</executableName>
+              <arguments>
+                <argument>run</argument>
+                <argument>build:clientlibs</argument>
+              </arguments>
+            </nodeJsTask>
+          </tasks>
+        </configuration>
+      </plugin>
+
+      <!-- Do not generate eclipse project files -->
+      <plugin>
+        <groupId>io.wcm.devops.maven.plugins</groupId>
+        <artifactId>eclipse-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
