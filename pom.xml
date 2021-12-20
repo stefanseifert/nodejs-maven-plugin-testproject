@@ -29,7 +29,7 @@
           </execution>
         </executions>
         <configuration>
-          <nodeJsVersion>14.18.2</nodeJsVersion>
+          <nodeJsVersion>10.16.3</nodeJsVersion>
           <tasks>
             <npmInstallTask>
               <workingDirectory>${project.basedir}</workingDirectory>
